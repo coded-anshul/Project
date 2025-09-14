@@ -1,23 +1,28 @@
-const option = document.querySelector('button');
-const btn= document.addEventListener();
-var a="";
 
-const right = document.querySelector('.right');
-const wrong=document.querySelector('.wrong');
-right.addEventListener('click',()=>{
-    a=true;
-}
-)
+const rightAnswers = document.querySelectorAll('.right');
+const wrongAnswers = document.querySelectorAll('.wrong');
 
-wrong.addEventListener('click',()=>{
-    a=false;
-})
+const result = document.querySelector('.result');
+const submitBtn = document.querySelector('.submit');
 
-option.addEventListener('click',()=>{
-    if (a=true){
-        option.style.backgroundColor='green';
-    }
-    else{
-        option.style.backgroundColor='red';
-    }
-})
+
+let score = 0;
+
+
+rightAnswers.forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.style.backgroundColor = 'green';
+        score++;
+    });
+});
+
+
+wrongAnswers.forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.style.backgroundColor = 'red';
+    });
+});
+
+submitBtn.addEventListener('click', () => {
+    result.textContent = `Your score: ${score}`;
+});
